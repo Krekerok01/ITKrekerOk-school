@@ -2,7 +2,7 @@
 
 ![logo](src/main/resources/static/pictures/ITKrekerOk.png)
 ___
-#About ITKrekerOk-school
+<h1>About ITKrekerOk-school</h1>
 Это веб приложение, запустив которое вы можете изучить 
 сайт айти-школы. Однако для использования приложения 
 вам необходимо будет авторизоваться.
@@ -15,7 +15,7 @@ to log in to use the app.
 Depending on which user you choose, certain features 
 will be provided to you.
 
-###You can log in as:
+<h3>You can log in as:</h3>
 
 | ***Login*** | ***Password*** | ***Role*** |
 |:-----------:|:--------------:|:----------:|
@@ -27,7 +27,7 @@ will be provided to you.
 |   nikita    |   nikita1707   |   ADMIN    |
 
 ___
-#Built With
+<h1>Built With</h1>
 * Spring Boot
 * Spring Security
 * Hibernate
@@ -36,7 +36,7 @@ ___
 * JavaScript
 * Bootstrap
 ___
-#How to start
+<h1>How to start</h1>
 1. Before launching the application you need to 
  log into MySQL, and run sql-scripts, 
  which are located in the sql-scripts folder.
