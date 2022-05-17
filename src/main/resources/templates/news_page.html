@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <meta name="description" content="ITKrekerOk - this is the world of IT"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style type="text/css">
+        body {
+            background: #78A4BF;
+            color: #283740;
+        }
+
+        .hr-double {
+	       margin: 20px 0;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px solid #C4D9F5;
+	       border-bottom: 2px solid #330D64;
+        }
+
+        .hr-short {
+	       margin-left: 400px;
+	       margin-right: 400px;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px dotted #C4D9F5;
+        }
+
+        .main-menu {
+           color: #C4D9F5;
+        }
+
+        a.a_teg {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+        }
+
+        h1.main {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+            margin-left: 40px;
+        }
+
+        a.about_company {
+            color: #FFE1AF;
+            font: normal 150% 'century gothic', arial;
+            text-shadow: 3px 3px 3px #152F40;
+        }
+
+        h3.text_about_company {
+            color: #152F40;
+            font: normal 220% 'century gothic', arial;
+        }
+
+        #maket {
+           margin-left: 100px;
+	       margin-right: 100px;
+        }
+
+        #maket2 {
+           margin-left: 200px;
+	       margin-right: 200px;
+        }
+
+         #spacer {
+            width: 200px; /* Расстояние между колонками */
+         }
+
+         #spacer2 {
+            width: 100px; /* Расстояние между колонками */
+         }
+
+
+          #column1, #column2, #column3, #column4{
+            width: 600px; /* Расстояние между колонками */
+         }
+
+         #column3 {
+            color: #1F3E59;
+            font: normal 170% 'Comic Sans MS, Comic Sans', cursive;
+            text-shadow: 3px 3px 3px #8CA5C2;
+            margin-left: 100px;
+         }
+
+
+         .button {
+	        background-color: #337ab7;
+	        color: #FFE1AF;
+	        float: right;
+	        clear: both;
+	        font-size: 1.1em;
+	        margin-right: 40px;
+	        margin-top: 50px;
+	        border: 2px solid #335D99;
+	        box-shadow: 10px 5px 5px #353C64;
+        }
+
+        .logout_button {
+	        background-color: #337ab7;
+	        color: #FFE1AF;
+	        float: right;
+	        clear: both;
+	        font-size: 1.1em;
+	        margin-right: 40px;
+	        border: 2px solid #335D99;
+	        box-shadow: 10px 5px 5px #353C64;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<div>
+    <div class="main-menu">
+
+        <div sec:authorize="hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')">
+            <button onclick="window.location.href='employees/info'" class="button">Page for authorized users</button>
+        </div>
+        <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+            <button onclick="window.location.href='employees/list'" class="button">Page for Administration</button>
+        </div>
+
+
+        <div style="margin-left: 600px;">
+                <h1 class="main">ITKrekerOk</h1>
+                <h2>IT - it is your lifestyle!</h2>
+
+            <sec:authorize access="isAuthenticated()">
+                <form action="#" th:action="@{/logout}"
+                      method="POST">
+
+                    <input type="submit" value="Logout" class="logout_button" />
+
+                </form>
+            </sec:authorize>
+        </div>
+
+
+
+        <div style="margin-left: 650px;">
+
+            <p>
+                <a th:href="@{/news}" class="a_teg">Main</a> |
+                <a th:href="@{/courses}" class="a_teg">Courses</a> |
+                <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+            </p>
+
+        </div>
+
+
+    </div>
+</div>
+
+<hr class="hr-double">
+<br>
+
+<div>
+
+    <div>
+
+        <div>
+            <div style="margin-left: 500px;">
+                <h1><a href="#" class="about_company">About ITKrekerOk</a></h1>
+            </div>
+
+            <div style="margin-left: 100px; margin-right: 100px;">
+
+                <h3 class="text_about_company">
+                    We will teach you how to program and help you become an IT specialist.
+
+                    ITKrekerOk is a programming school where we will teach you the knowledge that is in demand today.
+                    All our programs are compiled by Senior and Lead developers of leading IT companies specifically for
+                    beginners in IT.
+                </h3>
+            </div>
+        </div>
+
+        <!--<button onclick="window.location.href='employees/list'" class="button">Page for Administration</button> -->
+
+        <br><br><hr class="hr-short"><br><br>
+
+        <div >
+
+            <table id="maket2">
+                <tr style="margin-left: 100px; margin-right: 100px;">
+                    <td id="column3">
+                        This is a cool video to watch that can give you a lot of motivation.
+                        IT is not only about programming. There are a lot of professions in this sphere.
+                        This video clearly shows us that you can collaborate with other people and make
+                        something amazing. You can make a dream come true!
+                    </td>
+                    <td id="spacer2"></td>
+                    <td id="column4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/mPiGHyIXKtw"
+                                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <br><br><hr class="hr-short"><br><br>
+
+
+        <div>
+
+            <div style="margin-left: 100px;">
+                <h4>
+                    <a href="#">Why is Python So Popular?</a>
+                    <a href="#" style="margin-left: 530px;">What’s the Best Programming Language to Learn in 2022?</a>
+                </h4>
+
+            </div>
+
+
+            <table id="maket">
+                <tr style="margin-left: 100px; margin-right: 100px;">
+                    <td id="column1">Even those who are unfamiliar with coding have likely heard of Python.
+                        What began as a hobby project named after a British surreal comedy troupe,
+                        Python has grown across three decades to become one of the world’s foremost coding languages.
+                        According to the 2021 Stack Overflow Developer Survey, approximately 68% of software developers
+                        who have worked extensively with Python have expressed interest in continuing to develop with Python.
+                        The same survey also identified Python as the number-one most-wanted coding language among developers
+                        who are not currently using it. There’s no denying Python’s popularity. And, if current trends are any
+                        indication, it will likely remain in high demand for years to come.
+                        <p><a href="#">Read more...</a></p>
+                    </td>
+                    <td id="spacer"></td>
+                    <td id="column2">
+                        Are you wondering what’s the best programming language to learn in 2022?
+                        Which first or additional technology can you pick up that will help you get a well-paying job?
+
+                        It’s not as simple of a choice as it seems. Some languages are popular and oversaturated,
+                        while others are trendy but obscure among recruiters. Either way it can be hard to find a job
+                        with them. Other coding languages are very old and it can be hard to break into an industry with
+                        developers who possess 20+ years of experience. Some are high in demand and low in supply,
+                        but very difficult to learn and apply.
+                        <p><a href="#">Read more...</a></p>
+
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+<hr class="hr-double">
+
+
+<div>
+    <p style="margin-left: 650px;">
+        <a th:href="@{/news}" class="a_teg">Main</a> |
+        <a th:href="@{/courses}" class="a_teg">Courses</a> |
+        <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+    </p>
+
+    <h6 style="margin-left: 675px;">krekerok.com 2022</h6>
+</div>
+
+</body>
+</html>

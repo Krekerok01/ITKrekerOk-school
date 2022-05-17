@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <meta name="description" content="ITKrekerOk - this is the world of IT"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+        body {
+            background: #78A4BF;
+            color: #283740;
+        }
+
+        .hr-double {
+	       margin: 20px 0;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px solid #C4D9F5;
+	       border-bottom: 2px solid #330D64;
+        }
+
+        .main-menu {
+           color: #C4D9F5;
+        }
+
+        a.a_teg {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+        }
+
+        h1.main {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+            margin-left: 40px;
+        }
+
+
+        .hr-short {
+	       margin-left: 400px;
+	       margin-right: 400px;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px dotted #C4D9F5;
+        }
+
+        .courses_table {
+            /*border: 4px double #333;*/
+            margin-left: 375px;
+	        margin-right: 300px;
+	        border-spacing: 10px 10px; /* Расстояние между ячейками */
+        }
+
+        .cells {
+            padding: 20px;
+            border: 1px solid #070939; /* Граница вокруг ячеек */
+            width: 250px;
+            height: 250px;
+        }
+
+        .button {
+	        background-color: #337ab7;
+	        color: #FFE1AF;
+	        float: right;
+	        clear: both;
+	        font-size: 1.1em;
+	        margin-right: 40px;
+	        margin-top: 50px;
+	        border: 2px solid #335D99;
+	        box-shadow: 10px 5px 5px #353C64;
+        }
+
+        .logout_button {
+	        background-color: #337ab7;
+	        color: #FFE1AF;
+	        float: right;
+	        clear: both;
+	        font-size: 1.1em;
+	        margin-right: 40px;
+	        border: 2px solid #335D99;
+	        box-shadow: 10px 5px 5px #353C64;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="main-menu">
+
+        <div sec:authorize="hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')">
+            <button onclick="window.location.href='employees/info'" class="button">Page for authorized users</button>
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <button onclick="window.location.href='employees/list'" class="button">Page for Administration</button>
+        </div>
+
+
+        <div style="margin-left: 600px;">
+            <h1 class="main">ITKrekerOk</h1>
+            <h2>IT - it is your lifestyle!</h2>
+
+            <sec:authorize access="isAuthenticated()">
+                <form action="#" th:action="@{/logout}"
+                      method="POST">
+
+                    <input type="submit" value="Logout" class="logout_button" />
+
+                </form>
+            </sec:authorize>
+        </div>
+
+
+
+        <div style="margin-left: 650px;">
+
+            <p>
+                <a th:href="@{/news}" class="a_teg">Main</a> |
+                <a th:href="@{/courses}" class="a_teg">Courses</a> |
+                <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+            </p>
+
+        </div>
+
+
+    </div>
+</div>
+
+<hr class="hr-double">
+<br>
+
+
+
+<div>
+
+    <table class="courses_table">
+
+        <!-- first line -->
+
+        <tr>
+
+            <td class="cells">
+                <h3>Java Developer</h3>
+                <img th:src="@{pictures/java.jpg}"/>
+                <p>Duration: 278 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Frontend Developer</h3>
+                <img th:src="@{pictures/front.jpg}"/>
+                <p>Duration: 215 academic hours</p>
+
+            </td>
+
+            <td class="cells">
+                <h3>UI/UX Designer</h3>
+                <img th:src="@{pictures/uiux.jpg}"/>
+                <p>Duration: 149 academic hours</p>
+            </td>
+
+        </tr>
+
+        <!-- second line -->
+
+
+        <tr>
+
+            <td class="cells">
+                <h3>Android Developer</h3>
+                <img th:src="@{pictures/android.jpg}"/>
+                <p>Duration: 249 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>IOS Developer</h3>
+                <img th:src="@{pictures/ios.jpg}"/>
+                <p>Duration: 257 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Python Developer</h3>
+                <img th:src="@{pictures/python.jpg}"/>
+                <p>Duration: 226 academic hours</p>
+            </td>
+
+        </tr>
+
+        <!-- third line -->
+
+        <tr>
+
+            <td class="cells">
+                <h3>C#(.NET) Developer</h3>
+                <img th:src="@{pictures/csharp.jpg}"/>
+                <p>Duration: 268 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Automation QA Engineer on Java</h3>
+                <img th:src="@{pictures/qajava.jpg}"/>
+                <p>Duration: 213 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Automation QA Engineer on JavaScript</h3>
+                <img th:src="@{pictures/qajavascript.jpg}"/>
+                <p>Duration: 189 academic hours</p>
+            </td>
+
+        </tr>
+
+        <!-- fourth line -->
+
+
+        <tr>
+
+            <td class="cells">
+                <h3>Project Manager</h3>
+                <img th:src="@{pictures/pm.jpg}"/>
+                <p>Duration: 178 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Business Analyst</h3>
+                <img th:src="@{pictures/ba.jpg}"/>
+                <p>Duration: 257 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Flutter Developer</h3>
+                <img th:src="@{pictures/flutter.jpg}"/>
+                <p>Duration: 216 academic hours</p>
+            </td>
+
+        </tr>
+
+        <!-- fifth line -->
+
+
+        <tr>
+
+            <td class="cells">
+                <h3>Data Scientist</h3>
+                <img th:src="@{pictures/data.jpg}"/>
+                <p>Duration: 225 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>Unity Developer</h3>
+                <img th:src="@{pictures/unity.jpg}"/>
+                <p>Duration: 257 academic hours</p>
+            </td>
+
+            <td class="cells">
+                <h3>IT Recruiter</h3>
+                <img th:src="@{pictures/hr.jpg}"/>
+                <p>Duration: 141 academic hours</p>
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+
+<hr class="hr-double">
+
+
+<div>
+    <p style="margin-left: 650px;">
+        <a th:href="@{/news}" class="a_teg">Main</a> |
+        <a th:href="@{/courses}" class="a_teg">Courses</a> |
+        <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+    </p>
+
+    <h6 style="margin-left: 675px;">krekerok.com 2022</h6>
+</div>
+
+</body>
+</html>

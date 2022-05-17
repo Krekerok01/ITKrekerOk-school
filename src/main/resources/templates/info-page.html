@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <meta name="description" content="ITKrekerOk - this is the world of IT"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+        body {
+            background: #78A4BF;
+            color: #283740;
+        }
+
+        .hr-double {
+	       margin: 20px 0;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px solid #C4D9F5;
+	       border-bottom: 2px solid #330D64;
+        }
+
+        .main-menu {
+           color: #C4D9F5;
+        }
+
+        a.a_teg {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+        }
+
+        h1.main {
+            color: #FFE1AF;
+            text-shadow: 3px 3px 3px #152F40;
+            margin-left: 40px;
+        }
+
+
+        .hr-short {
+	       margin-left: 350px;
+	       margin-right: 400px;
+	       padding: 0;
+	       height: 0;
+	       border: none;
+	       border-top: 2px dotted #C4D9F5;
+        }
+
+        .text {
+             margin-left: 300px;
+             margin-right: 300px;
+             color: #1F3E59;
+             font: normal 170% 'Comic Sans MS, Comic Sans', cursive;
+             text-shadow: 3px 3px 3px #8CA5C2;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="main">
+    <div class="main-menu">
+
+        <div style="margin-left: 600px;">
+            <h1 class="main">ITKrekerOk</h1>
+            <h2>IT - it is your lifestyle!</h2>
+        </div>
+
+
+
+        <div style="margin-left: 650px;">
+
+            <p>
+                <a th:href="@{/news}" class="a_teg">Main</a> |
+                <a th:href="@{/courses}" class="a_teg">Courses</a> |
+                <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+            </p>
+
+        </div>
+
+
+    </div>
+</div>
+
+<hr class="hr-double">
+<br>
+
+
+
+<div class="text">
+    <h2 style="margin-left: 100px;">
+        We are glad to see you in our friendly team!
+    </h2>
+
+    <br><br>
+
+
+    <p>
+        Information for students:
+    </p>
+
+    <p>
+        * If you have a problem with your tutor/mentor you should appeal to our
+        management, and we will try to solve your problem.
+    </p>
+
+    <p>
+        * We have the opportunity to take a break from studying or take a vocation.
+        The maximum duration can be - 3 weeks.
+
+    </p>
+
+    <p>
+        * If you get sick, you can study online or take a break from studying.
+    </p>
+
+    <p>
+        * The payment for classes is monthly.
+    </p>
+
+
+    <br><hr class="hr-short"><br>
+
+
+    <p>
+        Information for tutors:
+    </p>
+
+    <p>
+        * Don't forget to be added to the telegram channel of our team.
+        You can get a link to it from the management or ask a colleague to add you.
+    </p>
+
+    <p>
+        * If you have a problem with your student you should appeal to our
+        management, and we will try to solve your problem.
+    </p>
+
+
+
+
+</div>
+
+
+<hr class="hr-double">
+
+
+<div>
+    <p style="margin-left: 650px;">
+        <a th:href="@{/news}" class="a_teg">Main</a> |
+        <a th:href="@{/courses}" class="a_teg">Courses</a> |
+        <a th:href="@{/contacts}" class="a_teg">Contacts</a>
+    </p>
+
+    <h6 style="margin-left: 675px;">krekerok.com 2022</h6>
+</div>
+
+</body>
+</html>
